@@ -1,0 +1,8 @@
+# external requirements
+pandas
+plotly
+dash
+gunicorn
+parquet
+pyarrow
+fastparquet
