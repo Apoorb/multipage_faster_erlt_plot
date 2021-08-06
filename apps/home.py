@@ -7,6 +7,7 @@ external_stylesheets = [dbc.themes.DARKLY]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+# keep as layout when running in multi-page app.
 # change to app.layout if running as single page app instead
 layout = html.Div([
     dbc.Container([
@@ -65,9 +66,8 @@ layout = html.Div([
                href="https://www.flaticon.com/free-icon/coronavirus_2913604")
 
     ])
-
 ])
-#
-# # needed only if running this as a single page app
+
+# needed only if running this as a single page app
 # if __name__ == '__main__':
 #     app.run_server(host='127.0.0.1', debug=True)
