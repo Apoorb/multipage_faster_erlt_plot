@@ -6,3 +6,4 @@ gunicorn
 parquet
 pyarrow
 fastparquet
+dash_bootstrap_components
