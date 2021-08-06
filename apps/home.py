@@ -3,9 +3,9 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 
 # needed only if running this as a single page app
-external_stylesheets = [dbc.themes.DARKLY]
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+# external_stylesheets = [dbc.themes.DARKLY]
+#
+# app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 # keep as layout when running in multi-page app.
 # change to app.layout if running as single page app instead
