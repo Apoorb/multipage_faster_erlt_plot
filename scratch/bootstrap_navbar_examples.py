@@ -51,9 +51,7 @@ custom_default = dbc.Navbar(
             dbc.NavbarBrand("Custom default", href="#"),
             dbc.NavbarToggler(id="navbar-toggler1"),
             dbc.Collapse(
-                dbc.Nav(
-                    [nav_item, dropdown], className="ml-auto", navbar=True
-                ),
+                dbc.Nav([nav_item, dropdown], className="ml-auto", navbar=True),
                 id="navbar-collapse1",
                 navbar=True,
             ),
@@ -81,9 +79,7 @@ logo = dbc.Navbar(
             ),
             dbc.NavbarToggler(id="navbar-toggler2"),
             dbc.Collapse(
-                dbc.Nav(
-                    [nav_item, dropdown], className="ml-auto", navbar=True
-                ),
+                dbc.Nav([nav_item, dropdown], className="ml-auto", navbar=True),
                 id="navbar-collapse2",
                 navbar=True,
             ),
@@ -103,13 +99,9 @@ search_navbar = dbc.Navbar(
             dbc.Collapse(
                 dbc.Row(
                     [
+                        dbc.Col(dbc.Input(type="search", placeholder="Search")),
                         dbc.Col(
-                            dbc.Input(type="search", placeholder="Search")
-                        ),
-                        dbc.Col(
-                            dbc.Button(
-                                "Search", color="primary", className="ml-2"
-                            ),
+                            dbc.Button("Search", color="primary", className="ml-2"),
                             # set width of button column to auto to allow
                             # search box to take up remaining space.
                             width="auto",
@@ -138,17 +130,14 @@ dashboard = dbc.Navbar(
         dbc.Col(dbc.NavbarBrand("Dashboard", href="#"), sm=3, md=2),
         dbc.Col(dbc.Input(type="search", placeholder="Search here")),
         dbc.Col(
-            dbc.Nav(dbc.NavItem(dbc.NavLink("Sign out")), navbar=True),
-            width="auto",
+            dbc.Nav(dbc.NavItem(dbc.NavLink("Sign out")), navbar=True), width="auto"
         ),
     ],
     color="dark",
     dark=True,
 )
 
-app.layout = html.Div(
-    [default, custom_default, logo, search_navbar, dashboard]
-)
+app.layout = html.Div([default, custom_default, logo, search_navbar, dashboard])
 
 
 # we use a callback to toggle the collapse on small screens

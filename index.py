@@ -7,8 +7,7 @@ import dash_bootstrap_components as dbc
 
 
 from app import app
-from apps import (home, moves_2014b_3_running_comp,
-                  moves_2014b_2014_running_comp)
+from apps import home, moves_2014b_3_running_comp, moves_2014b_2014_running_comp
 
 # make a reuseable navitem for the different examples
 nav_item = dbc.NavItem(dbc.NavLink("Link", href="#"))
@@ -18,10 +17,12 @@ nav_item = dbc.NavItem(dbc.NavLink("Link", href="#"))
 dropdown = dbc.DropdownMenu(
     children=[
         dbc.DropdownMenuItem("Home", href="/home"),
-        dbc.DropdownMenuItem("MOVES 2014b vs. 3 Running",
-                             href="/moves_2014b_3_running_comp"),
-        dbc.DropdownMenuItem("MOVES 2014b vs. 2014 Running",
-                             href="/moves_2014b_3_running_comp"),
+        dbc.DropdownMenuItem(
+            "MOVES 2014b vs. 3 Running", href="/moves_2014b_3_running_comp"
+        ),
+        dbc.DropdownMenuItem(
+            "MOVES 2014b vs. 2014 Running", href="/moves_2014b_3_running_comp"
+        ),
     ],
     nav=True,
     in_navbar=True,
@@ -36,8 +37,11 @@ navbar = dbc.Navbar(
                 dbc.Row(
                     [
                         dbc.Col(html.Img(src="/assets/emissions.png", height="30px")),
-                        dbc.Col(dbc.NavbarBrand("On-Road Emissions ERLT DASH",
-                                                className="ml-2")),
+                        dbc.Col(
+                            dbc.NavbarBrand(
+                                "On-Road Emissions ERLT DASH", className="ml-2"
+                            )
+                        ),
                     ],
                     align="center",
                     no_gutters=True,
@@ -48,7 +52,9 @@ navbar = dbc.Navbar(
             dbc.Collapse(
                 dbc.Nav(
                     # right align dropdown menu with ml-auto className
-                    [nav_item, dropdown], className="ml-auto", navbar=True
+                    [nav_item, dropdown],
+                    className="ml-auto",
+                    navbar=True,
                 ),
                 id="navbar-collapse2",
                 navbar=True,
@@ -73,23 +79,20 @@ def toggle_navbar_collapse(n, is_open):
 
 
 # embedding the navigation bar
-app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
-    navbar,
-    html.Div(id='page-content')
-])
+app.layout = html.Div(
+    [dcc.Location(id="url", refresh=False), navbar, html.Div(id="page-content")]
+)
 
 
-@app.callback(Output('page-content', 'children'),
-              [Input('url', 'pathname')])
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
-    if pathname == '/moves_2014b_3_running_comp':
+    if pathname == "/moves_2014b_3_running_comp":
         return moves_2014b_3_running_comp.layout
-    elif pathname == '/moves_2014b_2014_running_comp':
+    elif pathname == "/moves_2014b_2014_running_comp":
         return moves_2014b_2014_running_comp.layout
     else:
         return home.layout
 
 
-if __name__ == '__main__':
-    app.run_server(host='127.0.0.1', debug=True)
+if __name__ == "__main__":
+    app.run_server(host="127.0.0.1", debug=True)

@@ -9,6 +9,4 @@ import dash_bootstrap_components as dbc
 
 # change to app.layout if running as single page app instead
 
-layout = html.Div(
-    "A"
-)
+layout = html.Div("A")

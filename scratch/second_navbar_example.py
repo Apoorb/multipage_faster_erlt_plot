@@ -25,13 +25,11 @@ nav = dbc.Nav(
         dbc.NavLink("Another link", href="#"),
         dbc.NavLink("Disabled", disabled=True, href="#"),
     ],
-    className="navbar navbar-expand-lg navbar-dark bg-primary"
+    className="navbar navbar-expand-lg navbar-dark bg-primary",
 )
 
 
-app.layout = html.Div(
-    [nav]
-)
+app.layout = html.Div([nav])
 
 
 if __name__ == "__main__":

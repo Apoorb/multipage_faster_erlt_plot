@@ -85,11 +85,9 @@ app.layout = html.Div(
                         ),
                     ],
                 ),
-                html.Div(
-                    className="four columns",
-                ),
+                html.Div(className="four columns"),
             ],
-        ),
+        )
     ]
 )
 
